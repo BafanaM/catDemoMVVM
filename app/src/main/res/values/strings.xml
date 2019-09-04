@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cat Demo App</string>
+    <string name="play_sound">Play Sound</string>
+    <string name="ok">dialog_ok</string>
+    <string name="failed_to_load_error">Failed to load data</string>
+    <string name="network_error">You are not connected to the network</string>
+    <string name="retry">Retry</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="error_occurred">Error Occured</string>
+    <string name="places_loading">Loading</string>
+    <string name="please_wait_message">Please wait..</string>
+</resources>
