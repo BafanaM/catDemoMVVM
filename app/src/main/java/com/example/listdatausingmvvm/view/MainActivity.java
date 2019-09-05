@@ -25,7 +25,6 @@ import com.example.listdatausingmvvm.model.CatListViewModel;
 public class MainActivity extends AppCompatActivity implements CatListAdapter.ItemOnclickListener {
 
     private CatListAdapter catListAdapter;
-    private AppDatabase appDatabase;
     private ProgressDialog catsProgressDialog;
 
     @Override
@@ -34,9 +33,9 @@ public class MainActivity extends AppCompatActivity implements CatListAdapter.It
 
         ActivityMainBinding binding;
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        appDatabase = AppDatabase.getInstance(this);
         catsProgressDialog = new ProgressDialog(this);
-//        showProgressDialog();
+        showProgressDialog();
+
         catListAdapter = new CatListAdapter(this::onItemClicked);
         binding.catListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.catListRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -55,11 +54,11 @@ public class MainActivity extends AppCompatActivity implements CatListAdapter.It
         CatListViewModel viewModel = ViewModelProviders.of(this).get(CatListViewModel.class);
         if (isNetworkConnectionAvailable()) {
             viewModel.getCatListLiveData().observe(this, catListAdapter::setCatListItems);
+            dismissProgressDialog();
         } else {
+            dismissProgressDialog();
             showCustomDialog(getString(R.string.network_error));
         }
-
-        dismissProgressDialog();
     }
 
     public void showProgressDialog() {

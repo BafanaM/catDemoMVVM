@@ -37,4 +37,20 @@ public class CatDataEntry {
     public String getDescription() {
         return description;
     }
+
+    public void setId(@NonNull String id) {
+        this.id = id;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
